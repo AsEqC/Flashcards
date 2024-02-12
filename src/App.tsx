@@ -1,10 +1,11 @@
-import { Checkbox } from '@/components/ui/Checkbox'
+import { Button } from '@/components/ui/Button'
 
 export function App() {
   return (
     <div>
-      <Checkbox checked disabled id={'1'} label={'1111'} />
-      <Checkbox id={'2'} label={'2222'} />
+      <Button fullWidth icon>
+        hahahahaha
+      </Button>
     </div>
   )
 }
