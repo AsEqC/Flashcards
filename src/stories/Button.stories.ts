@@ -15,7 +15,7 @@ const meta = {
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-  title: 'Example/Button',
+  title: 'Example/Typography',
 } satisfies Meta<typeof Button>
 
 export default meta
