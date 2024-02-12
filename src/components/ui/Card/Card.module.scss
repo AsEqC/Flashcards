@@ -1,0 +1,10 @@
+.card {
+  flex-shrink: 0;
+
+  background-color: var(--color-dark-700);
+  border: 1px solid var(--color-dark-300);
+  border-radius: 2px;
+  box-shadow:
+    1px 1px 2px var(--color-dark-900),
+    -1px -1px 2px var(--color-dark-900);
+}
