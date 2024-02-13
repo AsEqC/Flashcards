@@ -1,0 +1,54 @@
+.buttonTab {
+  all: unset;
+
+  cursor: pointer;
+
+  padding: 6px 24px;
+
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-m);
+  word-wrap: break-word;
+}
+
+.ToggleGroupItem {
+  box-sizing: border-box;
+
+  color: var(--color-light-100);
+
+  border-top: 1px var(--color-dark-300) solid;
+  border-right: 1px var(--color-dark-300) solid;
+  border-bottom: 1px var(--color-dark-300) solid;
+}
+
+.ToggleGroupItem:first-child {
+  color: var(--color-light-100);
+  border: 1px var(--color-dark-300) solid;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.ToggleGroupItem:last-child {
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+}
+
+.ToggleGroupItem:hover {
+  cursor: pointer;
+  color: var(--color-light-900);
+  background-color: var(--color-dark-100);
+}
+
+.tabActive {
+  color: var(--color-light-100);
+  background-color: var(--color-accent-500);
+  border: 1px var(--color-accent-900) solid;
+}
+
+.tabDisabled {
+  @extend .buttonTab;
+
+  color: var(--color-dark-300);
+  background-color: var(--color-dark-700);
+  border: 1px var(--color-dark-300) solid;
+}
