@@ -8,7 +8,7 @@ interface ButtonProps {
    */
   backgroundColor?: string
   /**
-   * Typography contents
+   * typography contents
    */
   label: string
   /**
@@ -20,7 +20,7 @@ interface ButtonProps {
    */
   primary?: boolean
   /**
-   * How large should the Typography be?
+   * How large should the typography be?
    */
   size?: 'large' | 'medium' | 'small'
 }
@@ -35,11 +35,11 @@ export const Button = ({
   size = 'medium',
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-Typography--primary' : 'storybook-Typography--secondary'
+  const mode = primary ? 'storybook-typography--primary' : 'storybook-typography--secondary'
 
   return (
     <button
-      className={['storybook-Typography', `storybook-button--${size}`, mode].join(' ')}
+      className={['storybook-typography', `storybook-button--${size}`, mode].join(' ')}
       style={{ backgroundColor }}
       type={'button'}
       {...props}
