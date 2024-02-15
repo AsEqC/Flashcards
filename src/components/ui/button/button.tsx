@@ -3,13 +3,13 @@ import { ComponentPropsWithoutRef, ElementType } from 'react'
 import { LogoutIcon } from '@/assets'
 import clsx from 'clsx'
 
-import s from './Button.module.scss'
+import s from './button.module.scss'
 
 export type ButtonProps<T extends ElementType> = {
   as?: T
   fullWidth?: boolean
-  icon: boolean
-  variant?: 'link' | 'primary' | 'secondary' | 'tertiary'
+  icon?: boolean
+  variant?: 'primary' | 'secondary'
 } & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType>(props: ButtonProps<T>) => {
@@ -19,7 +19,7 @@ export const Button = <T extends ElementType>(props: ButtonProps<T>) => {
     className,
     disabled,
     fullWidth,
-    icon,
+    icon = false,
     onClick,
     variant = 'primary',
     ...restProps
@@ -30,7 +30,9 @@ export const Button = <T extends ElementType>(props: ButtonProps<T>) => {
 
   return (
     <Component className={classname.button} disabled={disabled} onClick={onClick} {...restProps}>
-      {icon && LogoutIcon} {children}
+      <span className={s.span}>
+        {icon && <LogoutIcon size={1.3} />} {children}
+      </span>
     </Component>
   )
 }

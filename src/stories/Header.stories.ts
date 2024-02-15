@@ -10,7 +10,7 @@ const meta = {
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
-  title: 'Example/Header',
+  title: 'Example/header',
 } satisfies Meta<typeof Header>
 
 export default meta

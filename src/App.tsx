@@ -1,11 +1,9 @@
-import { Button } from '@/components/ui/Button'
+import { LoginForm } from '@/components/auth/login-form/login-form'
 
 export function App() {
   return (
     <div>
-      <Button fullWidth icon>
-        hahahahaha
-      </Button>
+      <LoginForm></LoginForm>
     </div>
   )
 }

@@ -6,7 +6,7 @@ const meta = {
   argTypes: {},
   component: Input,
   tags: ['autodocs'],
-  title: 'Components/Inputs',
+  title: 'Components/Input',
 } satisfies Meta<typeof Input>
 
 export default meta
@@ -36,8 +36,8 @@ export const SearchInput: Story = {
   args: {
     disabled: false,
     error: '',
-    label: 'Input search',
-    placeholder: 'Input search',
+    label: 'input search',
+    placeholder: 'input search',
     type: 'search',
   },
 }

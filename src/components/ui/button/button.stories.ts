@@ -32,20 +32,6 @@ export const Secondary: Story = {
     variant: 'secondary',
   },
 }
-export const Tertiary: Story = {
-  args: {
-    children: 'Tertiary Button',
-    disabled: false,
-    variant: 'tertiary',
-  },
-}
-export const Link: Story = {
-  args: {
-    children: 'Tertiary Button',
-    disabled: false,
-    variant: 'link',
-  },
-}
 
 export const FullWidth: Story = {
   args: {
