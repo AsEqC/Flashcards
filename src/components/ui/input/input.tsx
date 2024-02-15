@@ -3,7 +3,7 @@ import React, { ComponentPropsWithoutRef, useState } from 'react'
 import { ClosedEyeIcon, OpenEyeIcon, SearchIcon } from '@/assets'
 import clsx from 'clsx'
 
-import s from './Input.module.scss'
+import s from './input.module.scss'
 
 import { Typography } from '../typography'
 
