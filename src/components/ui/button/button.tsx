@@ -8,8 +8,8 @@ import s from './Button.module.scss'
 export type ButtonProps<T extends ElementType> = {
   as?: T
   fullWidth?: boolean
-  icon: boolean
-  variant?: 'link' | 'primary' | 'secondary' | 'tertiary'
+  icon?: boolean
+  variant?: 'primary' | 'secondary'
 } & ComponentPropsWithoutRef<T>
 
 export const Button = <T extends ElementType>(props: ButtonProps<T>) => {
@@ -17,10 +17,8 @@ export const Button = <T extends ElementType>(props: ButtonProps<T>) => {
     as: Component = 'button',
     children,
     className,
-    disabled,
     fullWidth,
-    icon,
-    onClick,
+    icon = false,
     variant = 'primary',
     ...restProps
   } = props
@@ -29,8 +27,10 @@ export const Button = <T extends ElementType>(props: ButtonProps<T>) => {
   }
 
   return (
-    <Component className={classname.button} disabled={disabled} onClick={onClick} {...restProps}>
-      {icon && LogoutIcon} {children}
+    <Component className={classname.button} {...restProps}>
+      <span className={s.span}>
+        {icon && <LogoutIcon size={1.3} />} {children}
+      </span>
     </Component>
   )
 }
