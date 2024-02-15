@@ -3,7 +3,7 @@ import { ComponentPropsWithoutRef, ElementType } from 'react'
 import { LogoutIcon } from '@/assets'
 import clsx from 'clsx'
 
-import s from './Button.module.scss'
+import s from './button.module.scss'
 
 export type ButtonProps<T extends ElementType> = {
   as?: T
