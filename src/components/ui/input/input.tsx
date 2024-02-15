@@ -1,18 +1,17 @@
-import React, { ComponentPropsWithoutRef, forwardRef, useState } from 'react'
+import { ComponentPropsWithoutRef, useState } from 'react'
 
 import { ClosedEyeIcon, OpenEyeIcon, SearchIcon } from '@/assets'
+import { Typography } from '@/components/ui/Typography'
 import clsx from 'clsx'
 
-import s from './input.module.scss'
-
-import { Typography } from '../typography'
+import s from './Input.module.scss'
 
 export type InputProps = {
   error?: string
   label?: string
 } & ComponentPropsWithoutRef<'input'>
 
-export const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps, ref) => {
+export const Input = (props: InputProps) => {
   const { className, disabled, error, label, type, ...res } = props
 
   const [showPassword, setShowPassword] = useState<boolean>(false)
@@ -51,20 +50,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps
           </button>
         )}
         {type === 'search' && <SearchIcon />}
-        <input
-          className={inputClassName}
-          disabled={disabled}
-          ref={ref}
-          type={currentType}
-          {...res}
-        />
+        <input className={inputClassName} disabled={disabled} type={currentType} {...res} />
       </label>
       <Typography as={'span'} className={s.labelError} variant={'caption'}>
         {error}
       </Typography>
     </div>
   )
-})
+}
 
 const getInputType = (type: ComponentPropsWithoutRef<'input'>['type'], showPassword: boolean) => {
   if (type === 'password' && !showPassword) {
