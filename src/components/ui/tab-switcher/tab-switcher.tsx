@@ -1,38 +1,44 @@
-import * as ToggleGroup from '@radix-ui/react-toggle-group'
-import clsx from 'clsx'
+import { ComponentPropsWithoutRef } from 'react'
+
+import { Typography } from '@/components/ui/typography'
+import * as TabsRadix from '@radix-ui/react-tabs'
 
 import s from './tab-switcher.module.scss'
 
-export type TabSwitcherProps = {
-  active?: number
+type TabType = {
+  className?: string
   disabled?: boolean
-  // onValueChanged: (currActive: number) => {}
-  tabs: string[]
+  title?: string
+  value?: string
 }
 
+export type TabSwitcherProps = {
+  label?: string
+  tabs: TabType[]
+} & ComponentPropsWithoutRef<typeof TabsRadix.Root>
+
 export const TabSwitcher = (props: TabSwitcherProps) => {
-  const { active, disabled = false, tabs } = props
-  const mappedTabs = (tabs: string[]) => {
+  const { label, tabs, ...restProps } = props
+  const mappedTabs = (tabs: TabType[]) => {
     return tabs.map((tab, i) => {
+      const { disabled, title, value } = tab
+
       return (
-        <ToggleGroup.Item
-          className={clsx(
-            disabled && s.tabDisabled,
-            s.buttonTab,
-            active === i ? s.tabActive : s.ToggleGroupItem
-          )}
-          key={i}
-          value={`${i}`}
-        >
-          {tab}
-        </ToggleGroup.Item>
+        <TabsRadix.Trigger className={s.tabsTrigger} disabled={disabled} key={i} value={`${value}`}>
+          <Typography className={s.tabsTitle} variant={'body1'}>
+            {title}
+          </Typography>
+        </TabsRadix.Trigger>
       )
     })
   }
 
   return (
-    <ToggleGroup.Root disabled={disabled} type={'single'} value={`${active}`}>
-      {mappedTabs(tabs)}
-    </ToggleGroup.Root>
+    <TabsRadix.Root className={s.tabsRoot} {...restProps}>
+      <Typography variant={'body2'}>{label}</Typography>
+      <TabsRadix.List aria-label={'Manage your account'} className={s.tabsList}>
+        {mappedTabs(tabs)}
+      </TabsRadix.List>
+    </TabsRadix.Root>
   )
 }

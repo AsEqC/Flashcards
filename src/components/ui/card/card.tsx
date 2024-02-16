@@ -4,12 +4,10 @@ import clsx from 'clsx'
 
 import s from './card.module.scss'
 
-export type CardProps = {
-  variant?: string
-} & ComponentPropsWithoutRef<'div'>
+export type CardProps = ComponentPropsWithoutRef<'div'>
 
 export const Card = (props: CardProps) => {
-  const { children, className, variant, ...restProps } = props
+  const { children, className, ...restProps } = props
   const classname = {
     card: clsx(s.card, className),
   }

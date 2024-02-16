@@ -1,54 +1,88 @@
-.buttonTab {
-  all: unset;
+.tabsRoot {
+  display: flex;
+  flex-direction: column;
 
+  width: 100%;
+  margin: 0 auto;
+
+  box-shadow: 0 2px 10px var(--black-a4);
+}
+
+.tabsList {
+  display: flex;
+  flex-shrink: 0;
+  margin-top: 5px;
+  border-bottom: 1px solid var(--mauve-6);
+
+  &:focus-visible {
+    background-color: #0a6638;
+  }
+}
+
+.tabsTrigger {
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   padding: 6px 24px;
 
-  font-size: var(--font-size-m);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-m);
-  word-wrap: break-word;
-}
-
-.ToggleGroupItem {
-  box-sizing: border-box;
-
+  font-family: inherit;
   color: var(--color-light-100);
 
-  border-top: 1px var(--color-dark-300) solid;
-  border-right: 1px var(--color-dark-300) solid;
-  border-bottom: 1px var(--color-dark-300) solid;
-}
+  background-color: transparent;
+  border: 1px solid var(--color-dark-500);
+  border-right: none;
+  border-radius: 2px 0 0 2px;
 
-.ToggleGroupItem:first-child {
-  color: var(--color-light-100);
-  border: 1px var(--color-dark-300) solid;
-  border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
+  &:not(:first-child) {
+    border: 1px solid var(--color-dark-500);
+    border-radius: 0;
+  }
 
-.ToggleGroupItem:last-child {
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
+  &:last-child {
+    border-radius: 0 2px 2px 0;
+  }
 
-.ToggleGroupItem:hover {
-  cursor: pointer;
-  color: var(--color-light-900);
-  background-color: var(--color-dark-100);
-}
+  &:hover {
+    background-color: var(--color-dark-500);
+    border: 1px solid var(--color-dark-100);
 
-.tabActive {
-  color: var(--color-light-100);
-  background-color: var(--color-accent-500);
-  border: 1px var(--color-accent-900) solid;
-}
+    .tabsTitle {
+      cursor: pointer;
+      color: var(--color-light-900);
+    }
 
-.tabDisabled {
-  @extend .buttonTab;
+    & + :nth-child(2) {
+      border-left: none;
+    }
+  }
 
-  color: var(--color-dark-300);
-  background-color: var(--color-dark-700);
-  border: 1px var(--color-dark-300) solid;
+  &.tabsTrigger[data-state='active'] {
+    background-color: var(--color-accent-500);
+    border-color: var(--color-accent-500);
+  }
+
+  &:focus-visible {
+    &.tabsTrigger[data-state='active'] {
+      background-color: var(--color-dark-700);
+      border: transparent;
+      outline: 2px solid var(--color-info-900);
+    }
+
+    & + :nth-child(2) {
+      border-left: none;
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+    background-color: var(--color-dark-700);
+    border: 1px solid var(--color-dark-300);
+
+    .tabsTitle {
+      color: var(--color-dark-300);
+    }
+  }
 }
