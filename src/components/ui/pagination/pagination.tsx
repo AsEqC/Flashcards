@@ -28,7 +28,7 @@ export const Pagination = (props: PaginationProps) => {
     totalCount,
   } = props
   const onChangeValue = (value: string) => {
-    changeItemsPerPage(Number(value))
+    changeItemsPerPage(+value)
   }
   const paginationRange = usePagination({ currentPage, pageSize, siblingCount, totalCount })
 
@@ -46,8 +46,8 @@ export const Pagination = (props: PaginationProps) => {
   const lastPage = paginationRange?.[paginationRange.length - 1]
   const firstPage = 1
 
-  if (lastPage && currentPage > Number(lastPage)) {
-    changeCurrentPage(Number(lastPage))
+  if (lastPage && currentPage > +lastPage) {
+    changeCurrentPage(+lastPage)
   }
 
   const classname = {
@@ -69,7 +69,7 @@ export const Pagination = (props: PaginationProps) => {
           <li
             className={clsx(s.pagination_item, pageNumber === currentPage && s.selected)}
             key={index}
-            onClick={() => changeCurrentPage(Number(pageNumber))}
+            onClick={() => changeCurrentPage(+pageNumber)}
           >
             {pageNumber}
           </li>

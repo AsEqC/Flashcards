@@ -1,0 +1,75 @@
+.root {
+  border-collapse: collapse;
+  width: 100%;
+  color: var(--color-light-100);
+  border: 1px solid var(--color-dark-500);
+}
+
+.tableHead {
+  background-color: var(--color-dark-500);
+}
+
+.tableRow {
+  border-bottom: 1px solid var(--color-dark-500);
+}
+
+.tableBody {
+  position: relative;
+}
+
+.tableHeadCell {
+  position: relative;
+  padding: 6px 22px;
+  text-align: left;
+  background-color: var(--color-dark-500);
+
+  & .tableHeadTitle {
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    width: fit-content;
+  }
+
+  &:first-child {
+    min-width: 200px;
+  }
+}
+
+.tableDataCell {
+  padding: 6px 22px;
+  background-color: var(--color-dark-900);
+
+  &:last-child {
+    text-align: center;
+  }
+
+  &:not(:last-child) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.tableDataContent {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.arrow {
+  position: absolute;
+  top: 10px;
+  transform-origin: center;
+  margin-left: 5px;
+}
+
+.arrowUp {
+  cursor: pointer;
+  transform: rotate(90deg);
+  transition: all 0.3s ease-in-out;
+}
+
+.tableImage {
+  width: 150px;
+  height: 50px;
+}
