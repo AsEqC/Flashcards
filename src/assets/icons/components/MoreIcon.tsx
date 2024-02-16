@@ -14,7 +14,6 @@ export const MoreIcon = (allProps: IconProps) => {
           xmlns={'http://www.w3.org/2000/svg'}
           {...props}
         >
-          <circle cx={12} cy={12} r={8.5} stroke={'currentColor'} />
           <g clipPath={'url(#clip0_5928_12620)'}>
             <path
               d={
