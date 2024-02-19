@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 
 import { DeleteIcon, EditIcon, PlayCircleIcon } from '@/assets'
 import userAvatar from '@/assets/images/defaultAvatar.png'
+import { Column } from '@/components/ui/table/table'
 import { Table, TableBody, TableDataCell, TableRow } from '@/components/ui/table/table-constructor'
 import { TableHeader } from '@/components/ui/table/table-header/table-header'
 
@@ -19,7 +20,7 @@ type Story = StoryObj<typeof meta>
 export const TableStory: Story = {
   args: {},
   render: args => {
-    const columns: Array<Column> = [
+    const columns: Column[] = [
       {
         key: 'title',
         title: 'Name',
@@ -110,15 +111,4 @@ export const TableStory: Story = {
       </Table>
     )
   },
-}
-
-export type Sort = {
-  direction: 'asc' | 'desc'
-  key: string
-} | null
-
-export type Column = {
-  key: string
-  sortable?: boolean
-  title: string
 }

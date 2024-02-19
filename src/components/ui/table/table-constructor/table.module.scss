@@ -19,8 +19,12 @@
 
 .tableHeadCell {
   position: relative;
+
+  min-height: 61px;
   padding: 6px 22px;
+
   text-align: left;
+
   background-color: var(--color-dark-500);
 
   & .tableHeadTitle {
@@ -58,14 +62,14 @@
 
 .arrow {
   position: absolute;
-  top: 10px;
+  top: 8px;
   transform-origin: center;
   margin-left: 5px;
 }
 
 .arrowUp {
   cursor: pointer;
-  transform: rotate(90deg);
+  transform: rotate(180deg);
   transition: all 0.3s ease-in-out;
 }
 

@@ -1,12 +1,13 @@
 import { ComponentPropsWithoutRef } from 'react'
 
-import { ArrowDownIcon } from '@/assets'
-import { Column, Sort } from '@/components/ui/table/table.stories'
+import { ArrowUpIcon } from '@/assets'
+import { Column, Sort } from '@/components/ui/table'
 import { TableHead, TableHeadCell, TableRow } from '@/components/ui/table/table-constructor'
 import { Typography } from '@/components/ui/typography'
 import clsx from 'clsx'
 
 import s from '../table-constructor/table.module.scss'
+
 export type TableHeaderProps = Omit<
   ComponentPropsWithoutRef<'thead'> & {
     columns: Column[]
@@ -45,8 +46,10 @@ export const TableHeader = (props: TableHeaderProps) => {
         {columns.map(({ key, sortable = true, title }) => (
           <TableHeadCell className={s.tableHeadCell} key={key} onClick={handleSort(key, sortable)}>
             <Typography className={s.tableHeadTitle} variant={'subtitle2'}>
-              {title}{' '}
-              {sort && sort.key === key && <ArrowDownIcon className={classname.arrow} size={1.3} />}
+              <span>
+                {title}{' '}
+                {sort && sort.key === key && <ArrowUpIcon className={classname.arrow} size={1.3} />}
+              </span>
             </Typography>
           </TableHeadCell>
         ))}

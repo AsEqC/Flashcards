@@ -19,11 +19,16 @@ export type TabSwitcherProps = {
 export const TabSwitcher = (props: TabSwitcherProps) => {
   const { label, tabs, ...restProps } = props
   const mappedTabs = (tabs: TabType[]) => {
-    return tabs.map((tab, i) => {
+    return tabs.map(tab => {
       const { disabled, title, value } = tab
 
       return (
-        <RadixTabs.Trigger className={s.tabsTrigger} disabled={disabled} key={i} value={`${value}`}>
+        <RadixTabs.Trigger
+          className={s.tabsTrigger}
+          disabled={disabled}
+          key={value}
+          value={`${value}`}
+        >
           <Typography className={s.tabsTitle} variant={'body1'}>
             {title}
           </Typography>

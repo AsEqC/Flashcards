@@ -1,8 +1,7 @@
 import { DeleteIcon, EditIcon, PlayCircleIcon } from '@/assets'
-import { Column } from '@/components/ui/table/table.stories'
 import { TableHeader } from '@/components/ui/table/table-header/table-header'
 
-import s from './tableConstuctor/table.module.scss'
+import s from './table-constructor/table.module.scss'
 
 import { Table, TableBody, TableDataCell, TableRow } from './table-constructor'
 
@@ -47,4 +46,15 @@ type Option = {
   image?: string
   title: string
   updated: string
+}
+
+export type Sort = {
+  direction: 'asc' | 'desc'
+  key: string
+} | null
+
+export type Column = {
+  key: string
+  sortable?: boolean
+  title: string
 }

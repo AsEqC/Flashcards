@@ -1,4 +1,4 @@
-import React, { ComponentPropsWithoutRef, useState } from 'react'
+import React, { ChangeEvent, ComponentPropsWithoutRef, useState } from 'react'
 
 import { ClosedEyeIcon, OpenEyeIcon, SearchIcon } from '@/assets'
 import clsx from 'clsx'
@@ -10,17 +10,21 @@ import { Typography } from '../typography'
 export type InputProps = {
   error?: string
   label?: string
+  onValueChange: (value: string) => void
 } & ComponentPropsWithoutRef<'input'>
 
 export const Input = (props: InputProps) => {
-  const { className, disabled, error, label, type, ...res } = props
+  const { className, disabled, error, label, onChange, onValueChange, type, ...res } = props
 
   const [showPassword, setShowPassword] = useState<boolean>(false)
 
   const inputClassName = clsx(s.input, type === 'search' && s.search, error && s.error)
 
   const currentType = getInputType(type, showPassword)
-
+  const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    onChange?.(e)
+    onValueChange?.(e.target.value)
+  }
   const handleIconButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault()
     e.stopPropagation()
@@ -51,7 +55,13 @@ export const Input = (props: InputProps) => {
           </button>
         )}
         {type === 'search' && <SearchIcon />}
-        <input className={inputClassName} disabled={disabled} type={currentType} {...res} />
+        <input
+          className={inputClassName}
+          disabled={disabled}
+          onChange={onChangeHandler}
+          type={currentType}
+          {...res}
+        />
       </label>
       <Typography as={'span'} className={s.labelError} variant={'caption'}>
         {error}
