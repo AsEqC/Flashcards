@@ -1,9 +1,12 @@
-import { LoginForm } from '@/components/auth/login-form/login-form'
+import { Provider } from 'react-redux'
+
+import { Router } from '@/router'
+import { store } from '@/services/store'
 
 export function App() {
   return (
-    <div>
-      <LoginForm></LoginForm>
-    </div>
+    <Provider store={store}>
+      <Router />
+    </Provider>
   )
 }

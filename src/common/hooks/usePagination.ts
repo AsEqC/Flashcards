@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 
-import { PaginationProps } from '@/components/ui/pagination'
+import { PaginationProps } from '@/common/components/ui/pagination'
 export type usePaginationProps = Omit<
   PaginationProps,
   'changeCurrentPage' | 'changeItemsPerPage' | 'className'
