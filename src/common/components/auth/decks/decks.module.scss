@@ -1,0 +1,17 @@
+.tableWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+
+  max-width: 1280px;
+  margin: 0 auto;
+
+  & svg {
+    cursor: pointer;
+  }
+}
+
+.input {
+  align-self: start;
+}

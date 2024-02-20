@@ -6,7 +6,7 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
-import Decks from '@/components/auth/decks/decks'
+import { Decks } from '@/common/components/auth/decks/decks'
 
 const publicRoutes: RouteObject[] = [
   {
