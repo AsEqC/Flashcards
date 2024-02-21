@@ -36,7 +36,6 @@ export const Decks = () => {
   }, [orderBy])
 
   const debouncedSearch = useDebounce<string>(search)
-
   const { data, error, isLoading } = useGetDecksQuery({
     name: search,
     orderBy: orderByString,

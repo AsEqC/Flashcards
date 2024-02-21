@@ -4,17 +4,19 @@ import clsx from 'clsx'
 
 import s from './card.module.scss'
 
-export type CardProps = ComponentPropsWithoutRef<'div'>
+export type CardProps = {
+  classNameWrapper?: string
+} & ComponentPropsWithoutRef<'div'>
 
-export const Card = (props: CardProps) => {
-  const { children, className, ...restProps } = props
-  const classname = {
-    card: clsx(s.card, className),
+export const Card = ({ children, className, classNameWrapper }: CardProps) => {
+  const classNames = {
+    cardItems: clsx(s.cardItems, className),
+    cardWrapper: clsx(s.cardWrapper, classNameWrapper),
   }
 
   return (
-    <div className={classname.card} {...restProps}>
-      {children}
+    <div className={classNames.cardWrapper}>
+      <div className={classNames.cardItems}>{children}</div>
     </div>
   )
 }
