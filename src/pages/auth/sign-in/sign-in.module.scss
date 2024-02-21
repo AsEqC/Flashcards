@@ -1,0 +1,60 @@
+.signInWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profileEditWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signInLabel {
+  text-align: center;
+}
+
+.emailField {
+  margin: 27px 0 24px;
+}
+
+.passwordField {
+  margin: 24px 0 12px;
+}
+
+.rememberMe {
+  margin: 18px 0 10px;
+}
+
+.forgotPassword {
+  display: flex;
+  justify-content: flex-end;
+
+  margin-bottom: 66px;
+
+  color: var(--color-light-100);
+  text-decoration: none;
+
+  transition: 0.1s linear;
+
+  &:hover {
+    color: var(--color-light-900);
+  }
+}
+
+.formQuestion {
+  margin: 20px 0 7px;
+  color: var(--color-light-700);
+  text-align: center;
+}
+
+.signUpLink {
+  display: flex;
+  justify-content: center;
+  color: var(--color-accent-500);
+
+  &:visited {
+    color: var(--color-accent-700);
+  }
+}

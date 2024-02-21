@@ -4,6 +4,10 @@ export interface DeckResponse {
   items: Deck[]
   pagination: Pagination
 }
+export type CardsResponse = {
+  items: Card[]
+  pagination: Pagination
+}
 export interface Deck {
   author: User
   cardsCount: number
@@ -12,6 +16,19 @@ export interface Deck {
   id: string
   isPrivate: boolean
   name: string
+  updated: string
+  userId: string
+}
+export type Card = {
+  answer: string
+  answerImg?: null | string
+  created: string
+  deckId: string
+  grade: number
+  id: string
+  question: string
+  questionImg?: null | string
+  shots: number
   updated: string
   userId: string
 }

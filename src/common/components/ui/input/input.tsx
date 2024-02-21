@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ComponentPropsWithoutRef, useState } from 'react'
+import React, { ChangeEvent, ComponentPropsWithoutRef, forwardRef, useState } from 'react'
 
 import { ClosedEyeIcon, OpenEyeIcon, SearchIcon } from '@/assets'
 import clsx from 'clsx'
@@ -13,7 +13,7 @@ export type InputProps = {
   onValueChange?: (value: string) => void
 } & ComponentPropsWithoutRef<'input'>
 
-export const Input = (props: InputProps) => {
+export const Input = forwardRef<HTMLInputElement, InputProps>((props: InputProps, ref) => {
   const { className, disabled, error, label, onChange, onValueChange, type, ...res } = props
 
   const [showPassword, setShowPassword] = useState<boolean>(false)
@@ -23,7 +23,7 @@ export const Input = (props: InputProps) => {
   const currentType = getInputType(type, showPassword)
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     onChange?.(e)
-    onValueChange?.(e.target.value)
+    onValueChange?.(e.currentTarget.value)
   }
   const handleIconButtonClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault()
@@ -59,6 +59,7 @@ export const Input = (props: InputProps) => {
           className={inputClassName}
           disabled={disabled}
           onChange={onChangeHandler}
+          ref={ref}
           type={currentType}
           {...res}
         />
@@ -68,7 +69,7 @@ export const Input = (props: InputProps) => {
       </Typography>
     </div>
   )
-}
+})
 
 const getInputType = (type: ComponentPropsWithoutRef<'input'>['type'], showPassword: boolean) => {
   if (type === 'password' && !showPassword) {
