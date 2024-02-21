@@ -1,0 +1,35 @@
+.signUpWrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signUpLabel {
+  margin-bottom: 27px;
+  text-align: center;
+}
+
+.passwordField {
+  margin: 24px 0;
+}
+
+.confirmPassword {
+  margin-bottom: 60px;
+}
+
+.formQuestion {
+  margin: 20px 0 7px;
+  color: var(--color-light-700);
+  text-align: center;
+}
+
+.signInLink {
+  display: flex;
+  justify-content: center;
+  color: var(--color-accent-500);
+
+  &:visited {
+    color: var(--color-accent-700);
+  }
+}
